@@ -144,3 +144,26 @@ def associate_ecgs_with_dataset(dataset_id):
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
 
+def addDataset():
+    data = request.json  
+    print(data)
+    name_dataset = data.get('name_dataset')
+    created_at = data.get('created_at')
+    description = data.get('description_dataset')
+    type_dataset = "standard"
+    study_name= data.get('study_name')
+    source_name=data.get('source_name')
+    # Ajout du nouveau Dataset
+    new_dataset = Projet(name_dataset=name_dataset, created_at=created_at, description_dataset=description, type_dataset=type_dataset,
+                              study_name=study_name,source_name=source_name)   
+
+    # Ajouter dans la bdd
+    db.session.add(new_dataset)
+    try:
+        # Valider et enregistrer les modifications dans la bdd
+        db.session.commit()
+        return jsonify({"message": "Dataset ajouté avec succès"}), 201
+    except Exception as e:
+        # Erreur, annuler les modifications et renvoyer un message d'erreur
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
