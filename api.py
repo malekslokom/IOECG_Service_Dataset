@@ -119,7 +119,7 @@ def create_dataset():
         db.session.commit()
 
         # Return the ID of the newly created dataset
-        return jsonify({"idDataset": new_dataset.id_dataset}), 200
+        return jsonify({"id_dataset": new_dataset.id_dataset}), 200
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
