@@ -1,19 +1,23 @@
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import CheckConstraint
 from sqlalchemy.orm import relationship
 
-db = SQLAlchemy()
+
+
+from database import db  
+
 
 class Dataset(db.Model):
     __tablename__ = 'datasets'
 
     id_dataset = db.Column(db.Integer, primary_key=True, autoincrement=True)
+
     created_at = db.Column(db.TIMESTAMP(timezone=True), default=db.func.current_timestamp(), nullable=False)
     name_dataset = db.Column(db.String(), nullable=False)
     description_dataset = db.Column(db.Text, default=None)
     type_dataset = db.Column(db.String(), nullable=False)
     leads_name = db.Column(db.Text, nullable=False,default="")
     study_name = db.Column(db.String(), nullable=False,default="")
+
     study_details = db.Column(db.String(), default=None)
     source_name = db.Column(db.String(), nullable=False,default="")
     source_details = db.Column(db.String(), default=None)
@@ -55,3 +59,4 @@ class DatasetsECG(db.Model):
     # Define relationships with the Datasets and ECG tables
     # datasets = relationship("Dataset", backref="ecgs")
     # ecg = relationship("Ecg", backref="datasetsECG")
+
