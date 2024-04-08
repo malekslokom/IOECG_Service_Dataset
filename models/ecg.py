@@ -12,3 +12,4 @@ class ECG(db.Model):
     recording_sampling_rate = db.Column(db.Integer, nullable=False)
     recording_duration = db.Column(db.Integer, nullable=False)
     protocol_details = db.Column(JSONB, default=lambda: {})
+    datasetsECG = db.relationship('DatasetsECG', backref='ecg')

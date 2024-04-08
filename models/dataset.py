@@ -26,19 +26,19 @@ class Dataset(db.Model):
     __table_args__ = (
         CheckConstraint(type_dataset.in_(['search_results', 'standard']), name='check_type_dataset'),
     )
-class Ecg(db.Model):
-    __tablename__ = 'ecg'
+# class Ecg(db.Model):
+#     __tablename__ = 'ecg'
 
-    id_ecg = db.Column(db.Integer, primary_key=True)
-    id_patient = db.Column(db.Integer, db.ForeignKey('patients.id'), nullable=False)
-    filepath = db.Column(db.String, nullable=False)
-    recording_started_at = db.Column(db.TIMESTAMP, nullable=False)
-    recording_ended_at = db.Column(db.TIMESTAMP, nullable=False)
-    recording_initial_sampling_rate = db.Column(db.Integer, nullable=False)
-    recording_sampling_rate = db.Column(db.Integer, nullable=False)
-    recording_duration = db.Column(db.Integer, nullable=False)
-    protocol_details = db.Column(db.JSON)
-    datasetsECG = db.relationship('DatasetsECG', backref='ecg')
+#     id_ecg = db.Column(db.Integer, primary_key=True)
+#     id_patient = db.Column(db.Integer, db.ForeignKey('patients.id'), nullable=False)
+#     filepath = db.Column(db.String, nullable=False)
+#     recording_started_at = db.Column(db.TIMESTAMP, nullable=False)
+#     recording_ended_at = db.Column(db.TIMESTAMP, nullable=False)
+#     recording_initial_sampling_rate = db.Column(db.Integer, nullable=False)
+#     recording_sampling_rate = db.Column(db.Integer, nullable=False)
+#     recording_duration = db.Column(db.Integer, nullable=False)
+#     protocol_details = db.Column(db.JSON)
+#     datasetsECG = db.relationship('DatasetsECG', backref='ecg')
 # class DatasetsECG(db.Model):
 #     __tablename__ = 'datasetsECG'
 
@@ -56,7 +56,4 @@ class DatasetsECG(db.Model):
     id_dataset = db.Column(db.Integer, db.ForeignKey('datasets.id_dataset'), primary_key=True)
     id_ecg = db.Column(db.Integer, db.ForeignKey('ecg.id_ecg'), primary_key=True)
 
-    # Define relationships with the Datasets and ECG tables
-    # datasets = relationship("Dataset", backref="ecgs")
-    # ecg = relationship("Ecg", backref="datasetsECG")
 
