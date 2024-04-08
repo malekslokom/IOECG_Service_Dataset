@@ -108,9 +108,13 @@ def create_dataset():
         name = data.get('name')
         description = data.get('description')
         type_dataset = data.get('type_dataset')
-
+        leads_name=  data.get('leads_name')
+        study_details=  data.get('study_details')
+        source_name = data.get('source_name')
+        source_details  = data.get('source_details')
+        study_name  = data.get('study_name')
         # Create a new dataset in the database
-        new_dataset = Dataset(name_dataset=name, description_dataset=description, type_dataset=type_dataset)
+        new_dataset = Dataset(name_dataset=name, description_dataset=description, type_dataset=type_dataset,leads_name= leads_name,study_details=  study_details,source_name =source_name,source_details  =source_details,study_name  = study_name)
         db.session.add(new_dataset)
         db.session.commit()
 
