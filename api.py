@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 from flask import jsonify, request
-from models.datasets import Dataset
+from models.datasets import Dataset,db,DatasetsECG
 
 
 def health():
@@ -12,11 +12,11 @@ def getAll():
     datasets = Dataset.query.all()
     # Convertir les données des enregistrements en un format JSON
     dataset_data = [{
-        "idDataset": dataset.idDataset,
+        "idDataset": dataset.id_dataset,
         "created_at": dataset.created_at,
-        "nameDataset": dataset.nameDataset,
-        "descriptionDataset": dataset.descriptionDataset,
-        "typeDataset": dataset.typeDataset,
+        "nameDataset": dataset.name_dataset,
+        "descriptionDataset": dataset.description_dataset,
+        "typeDataset": dataset.type_dataset,
         "leads_name": dataset.leads_name,
         "study_name": dataset.study_name,
         "study_details": dataset.study_details,
@@ -96,3 +96,44 @@ def filter_data():
         return jsonify(dataset_data)
     else:
         return jsonify({"error": "No datasets found matching the criteria"}), 404
+
+
+
+def create_dataset():
+    try:
+        # Extract dataset name, description, and type from the request body
+        data = request.json
+        name = data.get('name')
+        description = data.get('description')
+        type_dataset = data.get('type_dataset')
+
+        # Create a new dataset in the database
+        new_dataset = Dataset(name_dataset=name, description_dataset=description, type_dataset=type_dataset)
+        db.session.add(new_dataset)
+        db.session.commit()
+
+        # Return the ID of the newly created dataset
+        return jsonify({"idDataset": new_dataset.id_dataset}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+def associate_ecgs_with_dataset(dataset_id):
+    try:
+        # Extract list of selected ECGs from the request body
+        data = request.json
+        selected_ecgs = data.get('ecgs')
+        print("selected_ecgs")
+        print(selected_ecgs)
+        # Associate selected ECGs with the dataset in the database
+        for ecg_id in selected_ecgs:
+            print(ecg_id)
+            new_association = DatasetsECG(id_dataset=dataset_id, id_ecg=ecg_id)
+            db.session.add(new_association)
+        
+        db.session.commit()
+
+        return jsonify({"message": "ECGs associated with dataset successfully"}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
