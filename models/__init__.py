@@ -5,3 +5,4 @@ from .ecg import ECG
 from .rapport import Rapport
 from .modele import Modele
 from .association import analyses_datasets, analyses_modeles
+from .experience import Experience
