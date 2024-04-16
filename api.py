@@ -29,6 +29,11 @@ def getAll():
 
     # Renvoyer les données des enregistrements au format JSON
     return jsonify(dataset_data)
+def getAllIRD():
+    with open('datasetStaticData.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        return jsonify(data)
+
 
 def getDatasetById(id_dataset):
     dataset = Dataset.query.filter_by(id_dataset=id_dataset).first()

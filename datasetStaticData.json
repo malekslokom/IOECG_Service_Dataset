@@ -1,33 +1,66 @@
-
 [
-    {
-      "nom": "Dataset 1",
-      "dateCreation": "01/01/24",
-      "auteur": "Andy",
-      "description": "Description 1",
-      "type": "Recherche"
-    },
-        {
-      "nom": "Dataset 2",
-      "dateCreation": "01/01/24",
-      "auteur": "Andy",
-      "description": "Description 2",
-       "type": "Recherche"
-
-    },
-        {
-      "nom": "Dataset 3",
-      "dateCreation": "01/01/24",
-      "auteur": "Andy",
-      "description": "Description 3",
-        "type": "Recherche"
-
-    },
-        {
-      "nom": "Dataset 4",
-      "dateCreation": "01/01/24",
-      "auteur": "Andy",
-      "description": "Description 4",
-       "type": "Recherche"
-    }
-    ]
+  {
+    "id_dataset": 4,
+    "created_at": "Mon, 01 Jan 2024 12:00:00 GMT",
+    "name_dataset": "Standard ECG Data Set",
+    "description_dataset": "Données ECG standard pour l'analyse clinique",
+    "type_dataset": "standard",
+    "leads_name": "Lead I, Lead II, Lead III, Lead AVR, Lead AVL, Lead AVF, Lead V1-V6",
+    "study_name": "Analyse Clinique Standard",
+    "study_details": "Utilisé pour l'enseignement et la pratique clinique régulière",
+    "source_name": "Hôpital B",
+    "source_details": "Données collectées de routine clinique"
+  },
+  {
+    "id_dataset": 5,
+    "created_at": "Fri, 15 Feb 2024 09:00:00 GMT",
+    "name_dataset": "ECG Comparative Study",
+    "description_dataset": "Comparaison de différents enregistrements ECG pour étude diagnostique",
+    "type_dataset": "standard",
+    "leads_name": "Lead I, Lead II, Lead III",
+    "study_name": "Étude Comparative ECG",
+    "source_name": "Clinique D",
+    "source_details": "Comparaison entre patients symptomatiques et asymptomatiques"
+  },
+  {
+    "id_dataset": 6,
+    "created_at": "Sun, 10 Mar 2024 16:00:00 GMT",
+    "name_dataset": "Pediatric ECG Collection",
+    "description_dataset": "Collection d'ECG pédiatriques pour études spécialisées",
+    "type_dataset": "standard",
+    "leads_name": "Lead I, Lead II, Lead III, Lead AVR, Lead AVL, Lead AVF",
+    "study_name": "Recherche Pédiatrique ECG",
+    "source_name": "Hôpital Pédiatrique E",
+    "source_details": "Données issues de consultations pédiatriques"
+  },
+  {
+    "id_dataset": 7,
+    "created_at": "Thu, 25 Apr 2024 14:30:00 GMT",
+    "name_dataset": "Emergency ECG Data",
+    "description_dataset": "Données ECG d'urgence pour analyse rapide",
+    "type_dataset": "standard",
+    "leads_name": "Lead I, Lead II, Lead III, Lead AVR, Lead AVL, Lead AVF, Lead V1-V6",
+    "study_name": "Étude d'Urgence",
+    "source_name": "Centre d'Urgence F"
+  },
+  {
+    "id_dataset": 8,
+    "created_at": "Wed, 22 May 2024 11:00:00 GMT",
+    "name_dataset": "Long-term ECG Monitoring",
+    "description_dataset": "Suivi à long terme des patients avec enregistrements ECG continus",
+    "type_dataset": "standard",
+    "leads_name": "Lead I, Lead II, Lead III",
+    "study_name": "Suivi Long Terme",
+    "source_name": "Clinique de Cardiologie G"
+  },
+  {
+    "id_dataset": 9,
+    "created_at": "Mon, 03 Jun 2024 08:30:00 GMT",
+    "name_dataset": "General Practice ECG",
+    "description_dataset": "Données ECG utilisées dans la pratique générale pour détection précoce",
+    "type_dataset": "standard",
+    "leads_name": "Lead I, Lead II, Lead III, Lead AVR, Lead AVL, Lead AVF",
+    "study_name": "Pratique Générale",
+    "source_name": "Centre Médical H"
+  }
+]

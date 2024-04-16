@@ -14,7 +14,7 @@ db.init_app(app)
 
 # les apis
 
-from api import health, getAll, getDatasetById, getDatasetsWithFilter,create_dataset,associate_ecgs_with_dataset
+from api import health, getAll, getDatasetById,getAllIRD, getDatasetsWithFilter,create_dataset,associate_ecgs_with_dataset
 
 # les routes
 app.route('/api/datasets/health')(health)
@@ -23,6 +23,7 @@ app.route('/api/datasets/<int:id_project>', methods=["GET"])(getDatasetById)
 app.route('/api/datasets/filter', methods=["GET"])(getDatasetsWithFilter)
 app.route('/api/datasets/<int:dataset_id>/datasetEcg', methods=['POST'])(associate_ecgs_with_dataset)
 app.route('/api/datasets', methods=['POST'])(create_dataset)
+app.route('/api/datasets/ird/', methods=['GET'])(getAllIRD)
 
 
 
