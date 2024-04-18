@@ -13,8 +13,8 @@ class Experience(db.Model):
     nom_machine = db.Column(db.String())
     nb_gpu = db.Column(db.Integer)
     nb_processeurs = db.Column(db.Integer)
-    heure_lancement = db.Column(db.Time, nullable=False, default= db.func.current_time())
-    heure_fin_prevu = db.Column(db.Time)
+    heure_lancement = db.Column(db.TIMESTAMP(timezone=True), default=db.func.current_timestamp(), nullable=False)
+    heure_fin_prevu = db.Column(db.TIMESTAMP(timezone=True), default=db.func.current_timestamp())
     statut = db.Column(db.String(), nullable=False)
     resultat_prediction  = db.Column(JSONB, default=lambda: {})
 
