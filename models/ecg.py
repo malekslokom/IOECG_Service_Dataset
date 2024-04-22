@@ -6,6 +6,7 @@ class ECG(db.Model):
     id_ecg = db.Column(db.Integer, primary_key=True)
     id_patient = db.Column(db.Integer, nullable=False)
     filepath = db.Column(db.String(), nullable=False)
+    origine_dataset = db.Column(db.Integer, nullable=True)
     recording_started_at = db.Column(db.TIMESTAMP, nullable=False)
     recording_ended_at = db.Column(db.TIMESTAMP, nullable=False)
     recording_initial_sampling_rate = db.Column(db.Integer, nullable=False)

@@ -2,7 +2,7 @@ from database import db
 class ECGLead(db.Model):
     __tablename__ = 'ecg_leads'
 
-    id_ecg_lead = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     ecg_id = db.Column(db.Integer, db.ForeignKey('ecg.id_ecg'), nullable=False)
     patient_id = db.Column(db.Integer, nullable=False)
     dataset_id = db.Column(db.Integer, db.ForeignKey('datasets.id_dataset'), nullable=False)

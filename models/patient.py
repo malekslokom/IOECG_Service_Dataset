@@ -1,11 +1,11 @@
 from database import db  
 class Patient(db.Model):
-    __tablename__ = 'patient'
+    __tablename__ = 'patients'
 
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.TIMESTAMP(timezone=True), default=db.func.current_timestamp(), nullable=False)
     last_updated_at = db.Column(db.TIMESTAMP(timezone=True), default=db.func.current_timestamp(), nullable=False)
-    dataset_id = db.Column(db.Integer, db.ForeignKey('datasets.idDataset'), nullable=False)
+    dataset_id = db.Column(db.Integer, db.ForeignKey('datasets.id_dataset'), nullable=False)
     patient_original_id = db.Column(db.String(), nullable=False)
     age = db.Column(db.Integer)
     birth_date = db.Column(db.String())
